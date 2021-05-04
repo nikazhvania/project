@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Searchimput {
+  border-radius: 50px;
+  position: absolute;
+  width: 707px;
+  height: 60px;
+  left: 339px;
+  top: 282px;
+  padding: 11px;
+}
+
+.lupa {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 990px;
+  top: 297px;
+}
+
+.Tag {
+  position: absolute;
+  width: 147px;
+  height: 44.14px;
+  border-radius: 50px;
+  background-color: transparent;
+  border: 2px gray solid;
+}
+
+.Tag-row {
+  position: absolute;
+  width: 1026px;
+  height: 44.14px;
+  left: 198px;
+  top: 401px;
+}
+
+.two {
+  width: 1290px !important;
+  left: 95px !important;
+  top: 470px !important;
+}
+.three {
+  width: 1300px !important;
+  left: 113px !important;
+  top: 539px !important;
+}
