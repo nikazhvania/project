@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "../../styles/search-style.css";
-import Search from "./img/search.svg";
+import Search from "./img/Search.svg";
 
 export default function SearchPage() {
   return (
@@ -22,9 +22,7 @@ export default function SearchPage() {
             borderRadius: "51px",
             backgroundColor: "transparent",
           }}
-        >
-          #technology
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -37,9 +35,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #lifeandlove
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -52,9 +48,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #essentialism
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -67,9 +61,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #webdevelopment
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -82,9 +74,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #fashion
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -97,9 +87,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #lifestyle
-        </button>
+        ></button>
       </div>
       <div className="Tag-row two">
         <button // DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
@@ -113,9 +101,7 @@ export default function SearchPage() {
             borderRadius: "51px",
             backgroundColor: "transparent",
           }}
-        >
-          #architecture
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -128,9 +114,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #sports
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -143,9 +127,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #entertainment
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -158,9 +140,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #culinaryarts
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -173,9 +153,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #travel
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -188,9 +166,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #worldhistory
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -203,9 +179,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #aeronautics
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -218,9 +192,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #games
-        </button>
+        ></button>
       </div>
       <div className="Tag-row three">
         <button //ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
@@ -235,9 +207,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #minimalism
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -250,9 +220,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #finearts
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -265,9 +233,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #graphicdesign
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -280,9 +246,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #filmmaking
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -295,9 +259,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #bitcoin
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -310,9 +272,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #computers
-        </button>
+        ></button>
         <button
           className="Tag1"
           style={{
@@ -325,9 +285,7 @@ export default function SearchPage() {
             backgroundColor: "transparent",
             marginLeft: "15px",
           }}
-        >
-          #machinelearning
-        </button>
+        ></button>
       </div>
     </Fragment>
   );
