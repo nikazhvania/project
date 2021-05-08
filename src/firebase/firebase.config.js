@@ -8,11 +8,10 @@ var firebaseConfig = {
   messagingSenderId: "160773772315",
   appId: "1:160773772315:web:46b25f11e87774c64614be",
 };
-  
+
 // ინიციალიზაცია firebase - ის
 firebase.initializeApp(firebaseConfig);
 // მოგვაქვს firebase - ის პროდუქტი -> firestore
 const firestore = firebase.firestore();
 
 export { firestore };
-//gio was here
