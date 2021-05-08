@@ -4,9 +4,15 @@ import "./style.scss";
 function Header() {
   return (
     <header>
-      <div className="logo">
-        <img src={`${process.env.PUBLIC_URL}/assets/images/logo.svg`} alt="" />
-      </div>
+      <a style={{ display: "flex" }} href="/ ">
+        {" "}
+        <div className="logo">
+          <img
+            src={`${process.env.PUBLIC_URL}/assets/images/logo.svg`}
+            alt=""
+          />
+        </div>{" "}
+      </a>
       <nav>
         <ul>
           <li>
@@ -32,7 +38,10 @@ function Header() {
         </button>
       </div>
       <div className="login">
-        <button>ავტორიზაცია</button>
+        <a href="/Registration" style={{ display: "flex" }}>
+          {" "}
+          <button>ავტორიზაცია</button>{" "}
+        </a>
       </div>
     </header>
   );
