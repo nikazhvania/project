@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "../../styles/search-style.css";
-import Search from "./img/search.svg";
+import Search from "./img/Search.svg";
 
 export default function SearchPage() {
   return (
