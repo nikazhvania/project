@@ -4,7 +4,8 @@ import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import Registration from "./pages/Registration/Registration";
 import "./styles/base.scss";
-import SearchPage from "./pages/SearchPage/Search";
+import SearchPage from "./pages/Search/search";
+import SearchResult from "./pages/Search/result";
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact={true} component={HomePage} />
-        <Route path="/SearchPage" component={SearchPage} />
+        <Route path="/search" exact component={SearchPage} />
         <Route path="/Registration" component={Registration} />
+        <Route path="/search/:keyword" component={SearchResult} />
       </Switch>
     </div>
   );

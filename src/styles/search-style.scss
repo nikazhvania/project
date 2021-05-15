@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Searchinput {
+  border-radius: 50px;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  padding: 11px;
+  display: block;
+  position: absolute;
+}
+
+.lupa {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 15px;
+  top: calc(50% - 15px);
+}
+
+.Tag {
+  position: absolute;
+  width: 147px;
+  height: 44.14px;
+  border-radius: 50px;
+  background-color: transparent;
+  border: 2px gray solid;
+}
+
+.Tag-row {
+  width: 1026px;
+  height: 44.14px;
+  margin: auto;
+  margin-top: 59px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.inputform {
+  position: relative;
+  width: 707px;
+  height: 60px;
+  margin: auto;
+}
+
+.Tag1 {
+  width: 173px;
+  height: 44.14px;
+  border-radius: 51px;
+  background-color: transparent;
+  margin-left: 15px;
+  margin-bottom: 40px;
+}
+
+.firstpost {
+  margin: auto;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.gamer {
+  width: 300px;
+  height: auto;
+}
+
+.xbox {
+  width: 300px;
+  height: auto;
+}
+
+.secondpost {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.drone {
+  width: 300px;
+  height: auto;
+}
+
+.thirdpost {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.fourthpost {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.iphone {
+  width: 300px;
+  height: auto;
+}
