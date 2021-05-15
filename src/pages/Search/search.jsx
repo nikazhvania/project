@@ -1,17 +1,10 @@
-import React, { Fragment } from "react";
-import "../../styles/search-style.css";
-import Search from "./img/Search.svg";
+import SearchInput from "../../components/Search/Search";
+import "../../styles/search-style.scss";
 
 export default function SearchPage() {
   return (
     <div className="main">
-      <div className="imputform">
-        <input
-          className="Searchimput"
-          placeholder="Find The Topics You Care About..."
-        />
-        <img className="lupa" src={Search} />
-      </div>
+      <SearchInput />
       <div className="Tag-row">
         <a href="/SearchResult">
           <button className="Tag1">#technology</button>

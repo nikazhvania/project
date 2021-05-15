@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.scss";
 
 function Header() {
@@ -30,12 +31,14 @@ function Header() {
         </ul>
       </nav>
       <div className="search">
-        <button>
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/images/search.svg`}
-            alt=""
-          />
-        </button>
+        <Link to="/search">
+          <button>
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/images/search.svg`}
+              alt=""
+            />
+          </button>
+        </Link>
       </div>
       <div className="login">
         <a href="/Registration" style={{ display: "flex" }}>
