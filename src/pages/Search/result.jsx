@@ -21,7 +21,10 @@ function SearchResult() {
               item
                 .data()
                 .title.toLowerCase()
-                .includes(keyword.toLowerCase()) && { ...item.data() }
+                .includes(keyword.toLowerCase()) && {
+                ...item.data(),
+                id: item.id,
+              }
             );
           })
         );

@@ -6,6 +6,7 @@ import Registration from "./pages/Registration/Registration";
 import "./styles/base.scss";
 import SearchPage from "./pages/Search/search";
 import SearchResult from "./pages/Search/result";
+import Fullpost from "./pages/Fullpost/Fullpost";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/search" exact component={SearchPage} />
         <Route path="/Registration" component={Registration} />
         <Route path="/search/:keyword" component={SearchResult} />
+        <Route path="/Fullpost/:postId" component={Fullpost} />
       </Switch>
     </div>
   );
