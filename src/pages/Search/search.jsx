@@ -1,36 +1,44 @@
 import SearchInput from "../../components/Search/Search";
 import "../../styles/search-style.scss";
-
+import {useHistory} from "react-router"
+import {useState, useEffect} from "react";
+import {firestore} from "../../firebase/firebase.config"
 export default function SearchPage() {
+const [tags, setTags] = useState([]); 
+const history = useHistory();
+
+ const getTags = async () => {
+    await firestore.collection("tags").get().then((querySnapshot) => {
+      setTags(querySnapshot.docs.map(item => ({
+        ...item.data(), id: item.id
+      })))
+    })
+  }
+
+useEffect(() => {
+  console.log('test')
+  getTags();
+}, [])
+
+
+const TagResult = (key) => {
+console.log("trstSA")
+history.push(`/search/${key}`);
+  }
+
   return (
     <div className="main">
       <SearchInput />
       <div className="Tag-row">
-        <a href="/SearchResult">
-          <button className="Tag1">#technology</button>
-        </a>
-        <button className="Tag1">#lifeandlove</button>
-        <button className="Tag1">#essentialism</button>
-        <button className="Tag1">#webdevelopment</button>
-        <button className="Tag1">#fashion</button>
-        <button className="Tag1">#lifestyle</button>
-
-        <button className="Tag1">#architecture</button>
-        <button className="Tag1">#sports</button>
-        <button className="Tag1">#entertainment</button>
-        <button className="Tag1">#culinaryarts</button>
-        <button className="Tag1">#travel</button>
-        <button className="Tag1">#worldhistory</button>
-        <button className="Tag1">#aeronautics</button>
-        <button className="Tag1">#games</button>
-
-        <button className="Tag1">#minimalism</button>
-        <button className="Tag1">#finearts</button>
-        <button className="Tag1">#graphicdesign</button>
-        <button className="Tag1">#filmmaking</button>
-        <button className="Tag1">#bitcoin</button>
-        <button className="Tag1">#computers</button>
-        <button className="Tag1">#machinelearning</button>
+        {tags.map((item) => {
+          return (
+            item && (
+          <>
+        <button onClick={() => TagResult(item.tag)} className="Tag1">{'#' + item.tag}</button>
+        </>
+         )
+        );
+      })}
       </div>
     </div>
   );
