@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { firestore } from "../../firebase/firebase.config";
 import { useEffect, useState } from "react";
 export default function Fullpost() {
-  const { postId } = useParams();
+  const { postId, keyword } = useParams();
   const [postinfo, setPostinfo] = useState([]);
   const fetchSinglePost = async () => {
     await firestore
@@ -21,12 +21,12 @@ export default function Fullpost() {
   return (
     <div className="main" style={{ width: "100%", margin: "auto" }}>
       <a
-        href="/search"
+        href={`/search/${keyword}`}
         style={{ color: "black", fontSize: "20px", marginBottom: "30px" }}
       >
         Go back
       </a>
-      <img src="" style={{ width: "100%", height: "450px" }} />
+      <img src={postinfo.image} style={{ width: "100%", height: "450px" }} />
       <h2
         style={{
           width: "600px",
@@ -51,7 +51,6 @@ export default function Fullpost() {
         <p style={{ color: "grey" }}>{postinfo.date}</p>
       </div>
       <p
-        style={{ color: "grey" }}
         style={{
           marginTop: "15px",
           margin: "auto",
@@ -62,7 +61,7 @@ export default function Fullpost() {
       >
         {postinfo.about}
       </p>
-      <p style={{ marginTop: "30px" }}>{postinfo.content}</p>
+      <p style={{ marginTop: "30px", fontSize: "20px" }}>{postinfo.content}</p>
     </div>
   );
 }

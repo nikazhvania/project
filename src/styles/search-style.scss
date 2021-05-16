@@ -13,7 +13,17 @@
   display: block;
   position: absolute;
 }
-
+#input {
+  text-align: right;
+  clear: both;
+  float: left;
+  margin-right: 15px;
+}
+#input input {
+  height: 30px;
+  margin: auto;
+  width: 250px;
+}
 .lupa {
   position: absolute;
   width: 30px;

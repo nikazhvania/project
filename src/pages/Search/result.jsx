@@ -8,8 +8,6 @@ function SearchResult() {
   const { keyword } = useParams();
   const [data, setData] = useState([]);
   const history = useHistory();
-  console.log("rendered");
-
   useEffect(() => {
     firestore
       .collection("articles")
@@ -33,64 +31,70 @@ function SearchResult() {
   const Fullpost = (id) => {
     history.push(`/fullpost/${id}`);
   };
-
+  const ErrorMessege = () => {
+    return <p>adfsfg</p>;
+  };
   return (
     <div>
       <SearchInput value={keyword} />
-      {data.map((item) => {
-        return (
-          item && (
-            <>
-              <div
-                classname="post"
-                style={{
-                  width: "80%",
-                  margin: "auto",
-                  marginTop: "171px",
-                  paddingBottom: "60px",
-                }}
-              >
-                <img
-                  src=""
-                  style={{ float: "left", width: "237px", height: "177px" }}
-                  alt="post image"
-                />
+      {data.length > 0 ? (
+        data.map((item, key) => {
+          return (
+            item && (
+              <>
                 <div
-                  classname="text"
+                  className="post"
                   style={{
-                    marginLeft: "37px",
-                    width: "calc(100% - 275px)",
-                    float: "left",
+                    width: "80%",
+                    margin: "auto",
+                    marginTop: "171px",
+                    paddingBottom: "60px",
                   }}
                 >
-                  <h3>{item.title}</h3>
-                  <div style={{ marginTop: "15px" }} />
-                  <b>{item.author}</b>
-                  <b style={{ display: "inline-block", marginLeft: "15px" }}>
-                    {item.date}
-                  </b>
-                  <b style={{ display: "inline-block", marginLeft: "15px" }}>
-                    {item.about}
-                  </b>
-                  <div style={{ marginTop: "15px" }} />
-                  <p>
-                    {item.content.length > 250
-                      ? `${item.content.substring(0, 350)}...`
-                      : item.content}
-                  </p>
-
-                  <button
-                    style={{ display: "inlineBlock" }}
-                    onClick={() => Fullpost(item.id)}
+                  <img
+                    src={item.image}
+                    style={{ float: "left", width: "237px", height: "177px" }}
+                    alt="post image"
+                  />
+                  <div
+                    className="text"
+                    style={{
+                      marginLeft: "37px",
+                      width: "calc(100% - 275px)",
+                      float: "left",
+                    }}
                   >
-                    მეტის ნახვა
-                  </button>
+                    <h3>{item.title}</h3>
+                    <div style={{ marginTop: "15px" }} />
+                    <b>{item.author}</b>
+                    <b style={{ display: "inline-block", marginLeft: "15px" }}>
+                      {item.date}
+                    </b>
+                    <b style={{ display: "inline-block", marginLeft: "15px" }}>
+                      {item.about}
+                    </b>
+                    <div style={{ marginTop: "15px" }} />
+                    <p>
+                      {item.content.length > 250
+                        ? `${item.content.substring(0, 350)}...`
+                        : item.content}
+                    </p>
+                    {console.log("sdmo")}
+                    <button
+                      style={{ display: "inlineBlock" }}
+                      onClick={() => Fullpost(item.id)}
+                    >
+                      მეტის ნახვა
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </>
-          )
-        );
-      })}
+              </>
+            )
+          );
+        })
+      ) : (
+        <div>fd</div>
+      )}
     </div>
   );
 }

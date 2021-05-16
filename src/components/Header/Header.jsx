@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
-
+import SearchInput from "../Search/Search";
+import HeaderInput from "./headerInput";
+import { useParams } from "react-router";
 function Header() {
+  const [searchCheck, setSearchCheck] = useState(false);
+  const { keyword } = useParams();
+  function Search() {
+    if (searchCheck == false) {
+      setSearchCheck(true);
+      document.getElementById("input").style.display = "contents";
+      document.getElementById("button").style.display = "contents";
+      document.getElementById("header").style.gridTemplateColumns =
+        "150px auto 300px 136px";
+    } else if (searchCheck == true) {
+      setSearchCheck(false);
+      document.getElementById("input").style.display = "none";
+      document.getElementById("header").style.gridTemplateColumns =
+        "150px auto 60px 136px";
+    }
+  }
   return (
-    <header>
+    <header id="header">
       <a style={{ display: "flex" }} href="/ ">
         {" "}
         <div className="logo">
@@ -20,25 +38,24 @@ function Header() {
             <a href="#">Nav Item</a>
           </li>
           <li>
-            <a href="#">Nav Item</a>
+            <a href="/about">About</a>
           </li>
           <li>
-            <a href="#">Nav Item</a>
-          </li>
-          <li>
-            <a href="/SearchPage">Search</a>
+            <a href="/search">Tags</a>
           </li>
         </ul>
       </nav>
       <div className="search">
-        <Link to="/search">
-          <button>
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/search.svg`}
-              alt=""
-            />
-          </button>
-        </Link>
+        <div style={{ display: "none" }} id="input">
+          <HeaderInput value={keyword} />
+        </div>
+        <button id="button" onClick={() => Search()}>
+          <img
+            style={{ float: "left" }}
+            src={`${process.env.PUBLIC_URL}/assets/images/search.svg`}
+            alt=""
+          />
+        </button>
       </div>
       <div className="login">
         <a href="/Registration" style={{ display: "flex" }}>

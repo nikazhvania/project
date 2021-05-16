@@ -13,5 +13,4 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 // მოგვაქვს firebase - ის პროდუქტი -> firestore
 const firestore = firebase.firestore();
-
 export { firestore };

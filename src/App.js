@@ -7,7 +7,7 @@ import "./styles/base.scss";
 import SearchPage from "./pages/Search/search";
 import SearchResult from "./pages/Search/result";
 import Fullpost from "./pages/Fullpost/Fullpost";
-
+import About from "./pages/About/About";
 function App() {
   return (
     <div className="container">
@@ -17,7 +17,8 @@ function App() {
         <Route path="/search" exact component={SearchPage} />
         <Route path="/Registration" component={Registration} />
         <Route path="/search/:keyword" component={SearchResult} />
-        <Route path="/Fullpost/:postId" component={Fullpost} />
+        <Route path="/Fullpost/:postId-:keyword" component={Fullpost} />
+        <Route path="/about" component={About} />
       </Switch>
     </div>
   );

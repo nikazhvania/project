@@ -1,30 +1,35 @@
 import SearchInput from "../../components/Search/Search";
 import "../../styles/search-style.scss";
-import {useHistory} from "react-router"
-import {useState, useEffect} from "react";
-import {firestore} from "../../firebase/firebase.config"
+import { useHistory } from "react-router";
+import { useState, useEffect } from "react";
+import { firestore } from "../../firebase/firebase.config";
+import { useParams } from "react-router";
 export default function SearchPage() {
-const [tags, setTags] = useState([]); 
-const history = useHistory();
+  const [tags, setTags] = useState([]);
+  const history = useHistory();
+  const { keyword } = useParams();
+  const getTags = async () => {
+    await firestore
+      .collection("tags")
+      .get()
+      .then((querySnapshot) => {
+        setTags(
+          querySnapshot.docs.map((item) => ({
+            ...item.data(),
+            id: item.id,
+          }))
+        );
+      });
+  };
 
- const getTags = async () => {
-    await firestore.collection("tags").get().then((querySnapshot) => {
-      setTags(querySnapshot.docs.map(item => ({
-        ...item.data(), id: item.id
-      })))
-    })
-  }
+  useEffect(() => {
+    console.log("test");
+    getTags();
+  }, []);
 
-useEffect(() => {
-  console.log('test')
-  getTags();
-}, [])
-
-
-const TagResult = (key) => {
-console.log("trstSA")
-history.push(`/search/${key}`);
-  }
+  const TagResult = (key) => {
+    history.push(`/search/${key}`);
+  };
 
   return (
     <div className="main">
@@ -33,12 +38,14 @@ history.push(`/search/${key}`);
         {tags.map((item) => {
           return (
             item && (
-          <>
-        <button onClick={() => TagResult(item.tag)} className="Tag1">{'#' + item.tag}</button>
-        </>
-         )
-        );
-      })}
+              <>
+                <button onClick={() => TagResult(item.tag)} className="Tag1">
+                  {"#" + item.tag}
+                </button>
+              </>
+            )
+          );
+        })}
       </div>
     </div>
   );

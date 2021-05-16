@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  margin-top: 100px;
+}
+.title {
+  margin: auto;
+  width: 400px;
+  text-align: center;
+  margin-top: 50px;
+}
+.title p {
+  margin-top: 20px;
+  width: 400px;
+  font-size: 20px;
+}
+.title h1 {
+  width: 400px;
+  font-size: 40px;
+}
+.about-section img {
+  width: 1180px;
+  margin: auto;
+  height: 2109px;
+}
+.about-section {
+  margin-top: 100px;
+}
+.contact-section img {
+  width: 1180px;
+  margin: auto;
+  margin-top: 237px;
+}
