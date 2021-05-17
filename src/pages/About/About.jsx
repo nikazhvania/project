@@ -1,6 +1,4 @@
 import "../../styles/about.css";
-import AboutPhoto from "../../about.svg";
-import Contact from "../../contact.svg";
 export default function About() {
   return (
     <div className="main">
@@ -9,7 +7,7 @@ export default function About() {
         <p>A publishing company that focuses on the essentials</p>
       </div>
       <div className="about-section">
-        <img src={AboutPhoto} />
+        <img src={`${process.env.PUBLIC_URL}/assets/images/about.svg`} />
       </div>
       <div className="title">
         <h1>Because we are you. Humans.</h1>
@@ -19,7 +17,7 @@ export default function About() {
         </p>
       </div>
       <div className="contact-section">
-        <img src={Contact} />
+        <img src={`${process.end.PUBLIC_URL}/assets.images/contact.svg`} />
       </div>
     </div>
   );

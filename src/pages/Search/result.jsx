@@ -8,6 +8,7 @@ function SearchResult() {
   const { keyword } = useParams();
   const [data, setData] = useState([]);
   const history = useHistory();
+  const [count, setCount] = useState(0);
   useEffect(() => {
     firestore
       .collection("articles")
@@ -15,6 +16,11 @@ function SearchResult() {
       .then((querySnapshot) => {
         setData(
           querySnapshot.docs.map((item) => {
+            if (item == false) {
+              setCount(count);
+            } else if (item != false) {
+              setCount(count + 1);
+            }
             return (
               item
                 .data()
@@ -29,15 +35,12 @@ function SearchResult() {
       });
   }, [keyword]);
   const Fullpost = (id) => {
-    history.push(`/fullpost/${id}`);
-  };
-  const ErrorMessege = () => {
-    return <p>adfsfg</p>;
+    history.push(`/fullpost/${id}-${keyword}`);
   };
   return (
     <div>
       <SearchInput value={keyword} />
-      {data.length > 0 ? (
+      {count > 0 ? (
         data.map((item, key) => {
           return (
             item && (
@@ -93,7 +96,9 @@ function SearchResult() {
           );
         })
       ) : (
-        <div>fd</div>
+        <div className="errormessege">
+          <h1>{data}</h1>
+        </div>
       )}
     </div>
   );

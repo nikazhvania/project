@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.profile-info {
+  margin-top: 100px;
+  width: 60%;
+  margin: auto;
+}
+.profile-info .img {
+  float: left;
+  width: 35%;
+}
+.text {
+  float: left;
+  width: 65%;
+  margin-top: 20px;
+}
+
+.image {
+  width: 100%;
+  margin-top: 75px;
+  position: relative;
+}
+.absolute {
+  position: absolute;
+  top: 450px;
+  width: 30%;
+  height: 460px;
+  right: 100px;
+  background-color: white;
+}
+.text1 {
+  padding: 20px;
+}
+.margin {
+  margin-top: 20px;
+}
+.posts {
+  margin-top: 75px;
+  width: 80%;
+  margin: auto;
+}
+.text3,
+.post img {
+  float: left;
+  width: 48%;
+}
+.post img {
+  width: 300px;
+  height: 300px;
+}
+.text3 {
+  margin: 50px 30px;
+}
+.text3 p,
+.text3 h2 {
+  margin-top: 10px;
+}
+.clear {
+  clear: both;
+}

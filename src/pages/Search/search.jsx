@@ -3,11 +3,9 @@ import "../../styles/search-style.scss";
 import { useHistory } from "react-router";
 import { useState, useEffect } from "react";
 import { firestore } from "../../firebase/firebase.config";
-import { useParams } from "react-router";
 export default function SearchPage() {
   const [tags, setTags] = useState([]);
   const history = useHistory();
-  const { keyword } = useParams();
   const getTags = async () => {
     await firestore
       .collection("tags")

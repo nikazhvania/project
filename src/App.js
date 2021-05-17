@@ -8,6 +8,7 @@ import SearchPage from "./pages/Search/search";
 import SearchResult from "./pages/Search/result";
 import Fullpost from "./pages/Fullpost/Fullpost";
 import About from "./pages/About/About";
+import Profile from "./pages/Profile/Profile";
 function App() {
   return (
     <div className="container">
@@ -19,6 +20,7 @@ function App() {
         <Route path="/search/:keyword" component={SearchResult} />
         <Route path="/Fullpost/:postId-:keyword" component={Fullpost} />
         <Route path="/about" component={About} />
+        <Route path="/profile/:userId" component={Profile}></Route>
       </Switch>
     </div>
   );

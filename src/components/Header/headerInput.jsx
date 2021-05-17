@@ -6,8 +6,12 @@ export default function SearchInput({ placeholder, value }) {
   const history = useHistory();
   const handleSearch = (e) => {
     if (e.key == "Enter") {
-      history.push(`/search/${e.target.value}`);
-      value = e.target.value;
+      if (e.target.value.includes("/")) {
+        return alert("search result can't include /");
+      } else {
+        history.push(`/search/${e.target.value}`);
+        value = e.target.value;
+      }
     }
   };
 
