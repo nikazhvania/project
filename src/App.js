@@ -10,7 +10,7 @@ import Fullpost from "./pages/Fullpost/Fullpost";
 import About from "./pages/About/About";
 import Profile from "./pages/Profile/Profile";
 import Reset from "./pages/Reset/reset";
-import ResetResult from "./pages/resetResult/resetResult";
+import ResetResult from "./pages/Reset/resetResult";
 function App() {
   return (
     <div className="container">

@@ -23,7 +23,7 @@ function Header() {
   }
   return (
     <header id="header">
-      <a style={{ display: "flex" }} href="/ ">
+      <a style={{ display: "flex" }} href="/">
         {" "}
         <div className="logo">
           <img
@@ -35,7 +35,7 @@ function Header() {
       <nav>
         <ul>
           <li>
-            <a href="#">Nav Item</a>
+            <a href="/">Home</a>
           </li>
           <li>
             <a href="/about">About</a>
