@@ -17,7 +17,7 @@ export default function About() {
         </p>
       </div>
       <div className="contact-section">
-        <img src={`${process.end.PUBLIC_URL}/assets.images/contact.svg`} />
+        <img src={`${process.env.PUBLIC_URL}/assets/images/contact.svg`} />
       </div>
     </div>
   );

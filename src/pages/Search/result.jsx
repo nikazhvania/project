@@ -82,7 +82,6 @@ function SearchResult() {
                         ? `${item.content.substring(0, 350)}...`
                         : item.content}
                     </p>
-                    {console.log("sdmo")}
                     <button
                       style={{ display: "inlineBlock" }}
                       onClick={() => Fullpost(item.id)}
@@ -97,7 +96,7 @@ function SearchResult() {
         })
       ) : (
         <div className="errormessege">
-          <h1>{data}</h1>
+          <h1>error</h1>
         </div>
       )}
     </div>

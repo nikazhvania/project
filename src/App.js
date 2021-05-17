@@ -9,6 +9,8 @@ import SearchResult from "./pages/Search/result";
 import Fullpost from "./pages/Fullpost/Fullpost";
 import About from "./pages/About/About";
 import Profile from "./pages/Profile/Profile";
+import Reset from "./pages/Reset/reset";
+import ResetResult from "./pages/resetResult/resetResult";
 function App() {
   return (
     <div className="container">
@@ -21,6 +23,8 @@ function App() {
         <Route path="/Fullpost/:postId-:keyword" component={Fullpost} />
         <Route path="/about" component={About} />
         <Route path="/profile/:userId" component={Profile}></Route>
+        <Route path="/reset/:userId" component={Reset}></Route>
+        <Route path="/resetResult/:userId" component={ResetResult}></Route>
       </Switch>
     </div>
   );

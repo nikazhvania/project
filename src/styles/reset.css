@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.reset-info {
+  width: 50%;
+  margin: 10px auto;
+  height: 500px;
+}
+.reset-info h1 {
+  margin-top: 30px;
+}
+.reset-info h1,
+.reset-info p {
+  text-align: center;
+}
+.reset-info p {
+  color: grey;
+  margin-top: 10px;
+}
+.reset-info input {
+  padding: 10px;
+  border-radius: 50px;
+  width: 60%;
+  margin: 20px auto;
+  display: block;
+}
+.button {
+  width: 250px !important;
+  height: 37px;
+  margin: auto;
+  display: block;
+}
+.errormessege {
+  border: solid red 1px;
+  background-color: rgb(189, 94, 94);
+  margin-top: 50px;
+  height: 100px;
+  display: none;
+}
+.errormessege p {
+  font-size: 20px;
+  color: white;
+  margin-top: 35px;
+}
