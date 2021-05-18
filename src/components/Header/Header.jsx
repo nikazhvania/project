@@ -43,6 +43,9 @@ function Header() {
           <li>
             <a href="/search">Tags</a>
           </li>
+          <li>
+            <a href="/Registration">Register</a>
+          </li>
         </ul>
       </nav>
       <div className="search">
@@ -58,7 +61,7 @@ function Header() {
         </button>
       </div>
       <div className="login">
-        <a href="/Registration" style={{ display: "flex" }}>
+        <a href="/login" style={{ display: "flex" }}>
           {" "}
           <button>ავტორიზაცია</button>{" "}
         </a>
