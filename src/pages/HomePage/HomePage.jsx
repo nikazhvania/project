@@ -13,6 +13,7 @@ function HomePage() {
     <div>
       <button onClick={() => profileRedirect()}>profile</button>
       <button onClick={() => profileRedirect1()}>reset password</button>
+      <button onClick={() => history.push(`/add-post`)}>add post</button>
     </div>
   );
 }

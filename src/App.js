@@ -11,6 +11,7 @@ import About from "./pages/About/About";
 import Profile from "./pages/Profile/Profile";
 import Reset from "./pages/Reset/reset";
 import ResetResult from "./pages/Reset/resetResult";
+import AddPost from "./pages/add-post/add";
 function App() {
   return (
     <div className="container">
@@ -25,6 +26,7 @@ function App() {
         <Route path="/profile/:userId" component={Profile}></Route>
         <Route path="/reset/:userId" component={Reset}></Route>
         <Route path="/resetResult/:userId" component={ResetResult}></Route>
+        <Route path="/add-post" component={AddPost}></Route>
       </Switch>
     </div>
   );

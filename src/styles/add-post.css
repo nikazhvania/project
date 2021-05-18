@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input {
+  width: 350px;
+}
+textarea {
+  width: 420px;
+  height: 150px;
+}
+.form {
+  height: 550px !important;
+}
+button {
+  margin: auto;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+}
