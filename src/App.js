@@ -11,7 +11,9 @@ import About from "./pages/About/About";
 import Profile from "./pages/Profile/Profile";
 import Reset from "./pages/Reset/reset";
 import ResetResult from "./pages/Reset/resetResult";
+import Login from "./pages/login/login";
 import AddPost from "./pages/add-post/add";
+import { Provider } from "react-redux";
 function App() {
   return (
     <div className="container">
@@ -19,13 +21,14 @@ function App() {
       <Switch>
         <Route path="/" exact={true} component={HomePage} />
         <Route path="/search" exact component={SearchPage} />
-        <Route path="/Registration" component={Registration} />
+        <Route path="/login" component={Login} />
         <Route path="/search/:keyword" component={SearchResult} />
         <Route path="/Fullpost/:postId-:keyword" component={Fullpost} />
         <Route path="/about" component={About} />
         <Route path="/profile/:userId" component={Profile}></Route>
         <Route path="/reset/:userId" component={Reset}></Route>
         <Route path="/resetResult/:userId" component={ResetResult}></Route>
+        <Route path="/Registration" component={Registration}></Route>
         <Route path="/add-post" component={AddPost}></Route>
       </Switch>
     </div>

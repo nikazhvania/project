@@ -16,11 +16,6 @@ function SearchResult() {
       .then((querySnapshot) => {
         setData(
           querySnapshot.docs.map((item) => {
-            if (item == false) {
-              setCount(count);
-            } else if (item != false) {
-              setCount(count + 1);
-            }
             return (
               item
                 .data()
@@ -40,7 +35,7 @@ function SearchResult() {
   return (
     <div>
       <SearchInput value={keyword} />
-      {count > 0 ? (
+      {data.length > 0 ? (
         data.map((item, key) => {
           return (
             item && (
@@ -50,8 +45,7 @@ function SearchResult() {
                   style={{
                     width: "80%",
                     margin: "auto",
-                    marginTop: "171px",
-                    paddingBottom: "60px",
+                    marginTop: "50px",
                   }}
                 >
                   <img
@@ -89,6 +83,7 @@ function SearchResult() {
                       მეტის ნახვა
                     </button>
                   </div>
+                  <div style={{ clear: "both" }} />
                 </div>
               </>
             )

@@ -22,15 +22,13 @@ export default function Profile() {
   return (
     <div>
       <div className="profile-info">
-        <div className="img">
-          <img src={data.profile_image} />
-        </div>
+        <img src={data.image} />
         <div className="text">
-          <h1>
-            {data.name} {data.surname}
+          <h1 style={{ textAlign: "center", marginTop: "15px" }}>
+            {data.Firstname} {data.surname}
           </h1>
-          <p style={{ colr: "grey" }}>@{data.username}</p>
-          <p>{data.description}</p>
+          <p style={{ colr: "grey", textAlign: "center" }}>@{data.username}</p>
+          <p style={{ marginTop: "15px" }}>{data.description}</p>
         </div>
       </div>
       <img

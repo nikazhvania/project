@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.login-center {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+}
+.text {
+  width: 100%;
+  margin: 25px auto;
+}
+.loginInput {
+  display: block;
+  width: 40%;
+  height: 50px;
+  margin: 15px auto;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  background: rgb(219, 219, 219);
+  border: none;
+}
+.main img {
+  position: absolute;
+}
+.key {
+  top: 64%;
+  left: 64.5%;
+}
+.user {
+  top: 53.5%;
+  left: 64.5%;
+}
+.downtext {
+  margin: auto;
+  width: 40%;
+}
+.downtext p,
+.downtext a {
+  display: inline;
+  margin: 0 20px;
+}
+.downtext a {
+  float: right;
+  border-bottom: solid rgb(0, 0, 0) 1px;
+}
+.loginn {
+  margin: 30px auto;
+  display: block;
+  width: 30%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: cornflowerblue;
+  border: none;
+}
+.input-div {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 60%;
+}
+.input-div p {
+  margin: auto;
+  width: 0;
+}
+.input-div input {
+  width: 60% !important;
+}
+.margin-top {
+  margin-top: 15px;
+}

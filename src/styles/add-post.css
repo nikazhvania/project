@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-input {
+.input {
   width: 350px;
 }
 textarea {
@@ -13,7 +13,7 @@ textarea {
 .form {
   height: 550px !important;
 }
-button {
+.button {
   margin: auto;
   display: block;
   padding: 10px;

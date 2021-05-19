@@ -4,28 +4,23 @@
   box-sizing: border-box;
 }
 .profile-info {
-  margin-top: 100px;
-  width: 60%;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
-.profile-info .img {
-  float: left;
-  width: 35%;
-}
-.text {
-  float: left;
-  width: 65%;
-  margin-top: 20px;
+.profile-info img {
+  width: 45%;
+  height: 300px;
 }
 
 .image {
   width: 100%;
-  margin-top: 75px;
+  margin-top: 70px;
   position: relative;
 }
 .absolute {
   position: absolute;
-  top: 450px;
+  top: 535px;
   width: 30%;
   height: 460px;
   right: 100px;
@@ -60,4 +55,8 @@
 }
 .clear {
   clear: both;
+}
+.text h1,
+.text p {
+  margin-left: 10px;
 }

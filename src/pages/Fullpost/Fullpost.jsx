@@ -26,7 +26,12 @@ export default function Fullpost() {
       >
         Go back
       </a>
-      <img src={postinfo.image} style={{ width: "100%", height: "450px" }} />
+      <div style={{ width: "100%", height: "450px", display: "block" }}>
+        <img
+          src={postinfo.image}
+          style={{ width: "87%", height: "450px", display: "block" }}
+        />
+      </div>
       <h2
         style={{
           width: "600px",
