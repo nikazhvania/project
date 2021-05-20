@@ -14,6 +14,7 @@ import ResetResult from "./pages/Reset/resetResult";
 import Login from "./pages/login/login";
 import AddPost from "./pages/add-post/add";
 import { Provider } from "react-redux";
+import Dashboard from "./pages/dashboard/dashboard";
 function App() {
   return (
     <div className="container">
@@ -30,6 +31,7 @@ function App() {
         <Route path="/resetResult/:userId" component={ResetResult}></Route>
         <Route path="/Registration" component={Registration}></Route>
         <Route path="/add-post" component={AddPost}></Route>
+        <Route path="/dashboard" component={Dashboard}></Route>
       </Switch>
     </div>
   );

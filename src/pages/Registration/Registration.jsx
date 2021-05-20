@@ -1,11 +1,17 @@
 import { firestore, storage } from "../../firebase/firebase.config";
 import { useHistory } from "react-router";
 import { useState } from "react";
+import { auth } from "../../firebase/firebase.config";
+import { saveUser } from "../../redux/actions";
+import { useDispatch } from "react-redux";
+import "../../styles/registration-style.css";
 export default function Resgistration() {
   const history = useHistory();
+  const dispatch = useDispatch();
   const [imagename, setImagename] = useState("");
   const [image, setImage] = useState(null);
-  const addUser = async () => {
+  const addUser = async (e) => {
+    e.preventDefault();
     let name, surname, username, description, email, password;
     const storeRef = storage.ref();
     setImagename("User Images/" + image.name);
@@ -17,6 +23,7 @@ export default function Resgistration() {
     description = document.getElementById("description").value;
     email = document.getElementById("email").value;
     password = document.getElementById("password").value;
+    auth.createUserWithEmailAndPassword(email, password);
     await firestore
       .collection("Users")
       .add({
@@ -27,7 +34,14 @@ export default function Resgistration() {
         image: await fileRef.getDownloadURL(""),
       })
       .then(() => {
-        history.push(`/`);
+        console.log("user method");
+        auth
+          .signInWithEmailAndPassword(email, password)
+          .then(async (userCredential) => {
+            const user = userCredential.user;
+            await dispatch(saveUser(user));
+            history.push("/dashboard");
+          });
       });
   };
   const fileupload = (e) => {
@@ -37,111 +51,103 @@ export default function Resgistration() {
     <div>
       <h2
         className="login-center"
-        style={{ marginTop: "40px", fontSize: "30px" }}
+        style={{ marginTop: "40px", fontSize: "30px", textAlign: "center" }}
       >
         Sign up
       </h2>
-      <p className="login-center">
+      <p
+        className="login-center"
+        style={{ textAlign: "center", marginTop: "15px" }}
+      >
         {" "}
         Already Registered? <a href="/login">Log In</a>{" "}
       </p>
-      <div className="input-div" style={{ marginTop: "20px" }}>
-        <p>Name:</p>
-        <input
-          id="name"
-          className="input"
-          placeholder="enter name"
+      <form onSubmit={(e) => addUser(e)}>
+        <div className="input-div">
+          <p className="input-paragraph">Name:</p>
+          <input
+            id="name"
+            className="input"
+            required
+            placeholder="enter name"
+          />
+        </div>
+        <div className="input-div">
+          <p className="input-paragraph">Surname:</p>
+          <input
+            id="surname"
+            className="input"
+            required
+            placeholder="enter surname"
+          />
+        </div>
+        <div className="input-div">
+          <p className="input-paragraph">Username:</p>
+          <input
+            id="username"
+            required
+            className="input"
+            placeholder="enter username"
+          />
+        </div>
+        <textarea
+          required
           style={{
+            margin: "20px 26%",
             display: "block",
-            margin: "10px auto",
+            width: "60%",
+            fontSize: "15px",
             padding: "10px",
-            width: "50%",
           }}
+          id="description"
+          placeholder="enter user description..."
         />
-      </div>
-      <div className="input-div">
-        <p>Surname:</p>
+        <div className="input-div">
+          <p className="input-paragraph">Email:</p>
+          <input
+            id="email"
+            className="input"
+            required
+            placeholder="enter email"
+            type="email"
+            style={{
+              display: "block",
+              margin: "10px auto",
+              padding: "10px",
+              width: "50%",
+            }}
+          />
+        </div>
+        <div className="input-div">
+          <p className="input-paragraph">Password:</p>
+          <input
+            required
+            id="password"
+            className="input"
+            placeholder="enter password"
+            type="password"
+            style={{
+              display: "block",
+              margin: "10px auto",
+              padding: "10px",
+              width: "50%",
+            }}
+          />
+        </div>
         <input
-          id="surname"
-          className="input"
-          placeholder="enter surname"
+          onChange={fileupload}
+          required
+          type="file"
           style={{
+            margin: "10px 41.5%",
             display: "block",
-            margin: "10px auto",
             padding: "10px",
-            width: "50%",
+            textAlign: "center",
           }}
+          id="file"
         />
-      </div>
-      <div className="input-div">
-        <p>Username:</p>
-        <input
-          id="username"
-          className="input"
-          placeholder="enter username"
-          style={{
-            display: "block",
-            margin: "10px auto",
-            padding: "10px",
-            width: "50%",
-          }}
-        />
-      </div>
-      <textarea
-        style={{
-          margin: "20px 26%",
-          display: "block",
-          width: "60%",
-          fontSize: "15px",
-          padding: "10px",
-        }}
-        id="description"
-        placeholder="enter user description..."
-      />
-      <div className="input-div">
-        <p>Email:</p>
-        <input
-          id="email"
-          className="input"
-          placeholder="enter email"
-          type="email"
-          style={{
-            display: "block",
-            margin: "10px auto",
-            padding: "10px",
-            width: "50%",
-          }}
-        />
-      </div>
-      <div className="input-div">
-        <p>Password:</p>
-        <input
-          id="password"
-          className="input"
-          placeholder="enter password"
-          type="password"
-          style={{
-            display: "block",
-            margin: "10px auto",
-            padding: "10px",
-            width: "50%",
-          }}
-        />
-      </div>
-      <input
-        type="file"
-        onChange={fileupload}
-        style={{
-          margin: "10px 41.5%",
-          display: "block",
-          padding: "10px",
-          textAlign: "center",
-        }}
-        id="file"
-      />
-      <button className="loginn" onClick={() => addUser()}>
-        Register
-      </button>
+        <input className="loginn" type="submit" value="submit" />
+      </form>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import { SIGN_IN_WITH_GOOGLE } from "./constants";
 import { firebase, auth } from "../firebase/firebase.config";
-
 const GoogleAuth = () => async (dispatch) => {
   const googleProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -17,5 +16,15 @@ const saveUser = (user) => async (dispatch) => {
     payload: user,
   });
 };
+const userLogOut = () => async (dispatch) => {
+  auth.signOut().then(() => {
+    console.log("user signed out");
 
-export { GoogleAuth, saveUser };
+    dispatch({
+      type: SIGN_IN_WITH_GOOGLE,
+      payload: null,
+    });
+  });
+};
+
+export { GoogleAuth, saveUser, userLogOut };

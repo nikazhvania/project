@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.input-div {
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+.input-paragraph {
+  width: 0;
+  margin: auto;
+}
+.input-div input {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 50%;
+}
+.loginn {
+  margin: 30px auto;
+  display: block;
+  width: 30%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: cornflowerblue;
+  border: none;
+}

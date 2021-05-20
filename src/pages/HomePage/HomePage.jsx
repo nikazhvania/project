@@ -1,7 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router";
-
+import { useDispatch } from "react-redux";
 function HomePage() {
+  const dispatch = useDispatch();
   const history = useHistory();
   return (
     <div>
