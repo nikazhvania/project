@@ -7,7 +7,7 @@ export default function Dashboard() {
   return (
     <div>
       <button onClick={() => dispatch(userLogOut(), history.push("/"))}>
-        გამოსვლა
+        გამოსვლა...
       </button>
     </div>
   );
