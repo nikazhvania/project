@@ -40,7 +40,7 @@ export default function Resgistration() {
           .then(async (userCredential) => {
             const user = userCredential.user;
             await dispatch(saveUser(user));
-            history.push("/dashboard");
+            history.push("/");
           });
       });
   };

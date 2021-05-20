@@ -16,7 +16,7 @@ export default function Login() {
       .then(async (userCredential) => {
         const user = userCredential.user;
         await dispatch(saveUser(user));
-        history.push("/dashboard");
+        history.push("/");
       });
   };
 
@@ -56,7 +56,6 @@ export default function Login() {
           <a href="/reset/ShJOWyOoliNHSez2IkYz">Forgot Password?</a>
         </div>
         <input type="submit" value="submit" className="loginn" />
-        Login
       </form>
     </div>
   );
