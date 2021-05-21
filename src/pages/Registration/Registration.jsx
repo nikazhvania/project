@@ -8,8 +8,7 @@ import "../../styles/registration-style.css";
 export default function Resgistration() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [imagename, setImagename] = useState("");
-  const [image, setImage] = useState();
+  const [image, setImage] = useState(null);
   const addUser = async (e) => {
     e.preventDefault();
     let name, surname, username, description, email, password;
@@ -20,20 +19,31 @@ export default function Resgistration() {
     email = document.getElementById("email").value;
     password = document.getElementById("password").value;
     auth.createUserWithEmailAndPassword(email, password);
-    await firestore
-      .collection("Users")
-      .add({
-        Firstname: name,
-        surname: surname,
-        username: username,
-        description: description,
-      })
-      .then(() => {
-        auth.signInWithEmailAndPassword(email, password);
-        history.push("/");
+    const storageRef = storage.ref();
+    const fileRef = storageRef.child("User Images/" + image.name);
+    await fileRef.put(image);
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(async (userCredential) => {
+        const user = userCredential.user;
+        await dispatch(saveUser(user));
+
+        firestore
+          .collection("Users")
+          .doc(user.uid)
+          .set({
+            Firstname: name,
+            surname: surname,
+            username: username,
+            description: description,
+            image: await fileRef.getDownloadURL(),
+          })
+          .then(() => {
+            history.push("/");
+          });
       });
   };
-  const fileupload = (e) => {
+  const fileUpload = (e) => {
     setImage(e.target.files[0]);
   };
   return (
@@ -124,16 +134,16 @@ export default function Resgistration() {
           />
         </div>
         <input
-          onChange={fileupload}
           required
+          className="input"
+          id="file"
           type="file"
+          onChange={fileUpload}
           style={{
-            margin: "10px 41.5%",
+            margin: "10px 42%",
             display: "block",
             padding: "10px",
-            textAlign: "center",
           }}
-          id="file"
         />
         <input className="loginn" type="submit" value="submit" />
       </form>

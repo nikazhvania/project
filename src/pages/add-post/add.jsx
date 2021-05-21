@@ -5,13 +5,18 @@ import { useHistory } from "react-router";
 export default function AddPost() {
   const history = useHistory();
   const [inputvalue, setInputvalue] = useState("");
+  const [image, setImage] = useState(null);
   const addPost = async () => {
-    let title, tags, content, date;
+    let title, tags, content, date, author;
     tags = document.getElementById("tags").value;
     content = document.getElementById("content").value;
     title = document.getElementById("title").value;
     date = document.getElementById("date").value;
-    await firestore
+    author = document.getElementById("author").value;
+    const storageRef = storage.ref();
+    const fileRef = storageRef.child("User Images/" + image.name);
+    await fileRef.put(image);
+    firestore
       .collection("articles")
       .add({
         tags: tags,
@@ -19,11 +24,17 @@ export default function AddPost() {
         title: title,
         date: date,
         desc: document.getElementById("content").value,
+        author: author,
+        image: await fileRef.getDownloadURL(),
       })
       .then(() => {
         history.push(`/`);
       });
   };
+  const fileUpload = (e) => {
+    setImage(e.target.files[0]);
+  };
+
   function handleTag(key) {
     if (inputvalue.includes(key)) {
       alert("Don't click the same tag twice");
@@ -44,7 +55,7 @@ export default function AddPost() {
     >
       <h1 style={{ textAlign: "center" }}>Add Post</h1>
       <input
-        required="true"
+        required
         className="input"
         id="title"
         style={{
@@ -55,7 +66,18 @@ export default function AddPost() {
         placeholder="add title"
       />
       <input
-        required="true"
+        id="author"
+        style={{
+          margin: "10px auto",
+          display: "block",
+          padding: "10px",
+        }}
+        className="input"
+        required
+        placeholder="enter author"
+      />
+      <input
+        required
         onClick={() => (document.getElementById("tag").style.display = "flex")}
         className="input"
         id="tags"
@@ -98,6 +120,18 @@ export default function AddPost() {
         id="content"
         style={{
           margin: "10px auto",
+          display: "block",
+          padding: "10px",
+        }}
+      />{" "}
+      <input
+        required
+        className="input"
+        id="file"
+        type="file"
+        onChange={fileUpload}
+        style={{
+          margin: "10px 36%",
           display: "block",
           padding: "10px",
         }}

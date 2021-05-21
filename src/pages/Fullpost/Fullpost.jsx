@@ -55,6 +55,9 @@ export default function Fullpost() {
         <p style={{ color: "grey" }}>{postinfo.author}</p>
         <p style={{ color: "grey" }}>{postinfo.date}</p>
       </div>
+      <p style={{ color: "grey", marginTop: "10px", textAlign: "center" }}>
+        {postinfo.tags}
+      </p>
       <p
         style={{
           marginTop: "15px",

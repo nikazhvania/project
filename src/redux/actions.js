@@ -1,5 +1,5 @@
 import { SIGN_IN_WITH_GOOGLE } from "./constants";
-import { firebase, auth } from "../firebase/firebase.config";
+import { firebase, auth, firestore } from "../firebase/firebase.config";
 const GoogleAuth = () => async (dispatch) => {
   const googleProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -23,6 +23,7 @@ const userLogOut = () => async (dispatch) => {
     dispatch({
       type: SIGN_IN_WITH_GOOGLE,
       payload: null,
+      data: null,
     });
   });
 };
