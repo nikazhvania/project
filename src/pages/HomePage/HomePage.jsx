@@ -14,7 +14,7 @@ function HomePage() {
     <div>
       {userStatus == null ? (
         <>
-          <button onClick={() => history.push("/profile/ShJOWyOoliNHSez2IkYz")}>
+          <button onClick={() => history.push("/profile/AKx7GLHyOsdYMKP70pvB")}>
             profile
           </button>
           <button onClick={() => history.push(`/add-post`)}>add post</button>

@@ -5,14 +5,8 @@ import { useHistory } from "react-router";
 export default function AddPost() {
   const history = useHistory();
   const [inputvalue, setInputvalue] = useState("");
-  const [image, setImage] = useState(null);
-  const [imagename, setImagename] = useState("");
   const addPost = async () => {
     let title, tags, content, date;
-    const storeRef = storage.ref();
-    setImagename("Post Images/" + image.name);
-    const fileRef = storeRef.child(imagename);
-    await fileRef.put(image);
     tags = document.getElementById("tags").value;
     content = document.getElementById("content").value;
     title = document.getElementById("title").value;
@@ -24,9 +18,7 @@ export default function AddPost() {
         content: content,
         title: title,
         date: date,
-        name: imagename,
         desc: document.getElementById("content").value,
-        image: await fileRef.getDownloadURL(""),
       })
       .then(() => {
         history.push(`/`);
@@ -39,9 +31,6 @@ export default function AddPost() {
       setInputvalue(inputvalue + " " + key);
     }
   }
-  const fileupload = (e) => {
-    setImage(e.target.files[0]);
-  };
   return (
     <div
       className="form"
@@ -112,14 +101,6 @@ export default function AddPost() {
           display: "block",
           padding: "10px",
         }}
-      />
-      <input
-        id="file"
-        required="true"
-        onChange={fileupload}
-        className="input"
-        style={{ margin: "20px auto", display: "block", width: "200px" }}
-        type="file"
       />
       <button onClick={() => addPost()} className="button">
         add post

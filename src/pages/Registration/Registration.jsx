@@ -9,14 +9,10 @@ export default function Resgistration() {
   const history = useHistory();
   const dispatch = useDispatch();
   const [imagename, setImagename] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState();
   const addUser = async (e) => {
     e.preventDefault();
     let name, surname, username, description, email, password;
-    const storeRef = storage.ref();
-    setImagename("User Images/" + image.name);
-    const fileRef = storeRef.child(imagename);
-    await fileRef.put(image);
     name = document.getElementById("name").value;
     surname = document.getElementById("surname").value;
     username = document.getElementById("username").value;
@@ -31,17 +27,10 @@ export default function Resgistration() {
         surname: surname,
         username: username,
         description: description,
-        image: await fileRef.getDownloadURL(""),
       })
       .then(() => {
-        console.log("user method");
-        auth
-          .signInWithEmailAndPassword(email, password)
-          .then(async (userCredential) => {
-            const user = userCredential.user;
-            await dispatch(saveUser(user));
-            history.push("/");
-          });
+        auth.signInWithEmailAndPassword(email, password);
+        history.push("/");
       });
   };
   const fileupload = (e) => {
