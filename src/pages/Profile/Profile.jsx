@@ -1,14 +1,15 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { firestore } from "../../firebase/firebase.config";
+import { useSelector } from "react-redux";
 import "../../styles/profile-style.css";
 export default function Profile() {
-  const { userId } = useParams();
   const [data, setData] = useState([]);
+  const { user } = useSelector((state) => state);
   const fetchProfile = async () => {
     await firestore
       .collection("Users")
-      .doc(userId)
+      .doc(user.uid)
       .get()
       .then((doc) => {
         setData(doc.data());
@@ -16,9 +17,10 @@ export default function Profile() {
   };
 
   useEffect(() => {
-    fetchProfile();
-    console.log(data.image, data.name);
-  }, []);
+    if (user) {
+      fetchProfile();
+    }
+  }, [user]);
 
   return (
     <div>

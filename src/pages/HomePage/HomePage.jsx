@@ -1,32 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
-import { auth, firestore } from "../../firebase/firebase.config";
+import { useDispatch } from "react-redux";
 import { userLogOut } from "../../redux/actions";
+import { Link } from "react-router-dom";
 function HomePage() {
   const dispatch = useDispatch();
+
   const history = useHistory();
-  const [userdata, setUserdata] = useState();
-  const [fulldata, setFulldata] = useState([]);
-  auth.onAuthStateChanged((user) => {
-    setUserdata(user);
-  });
+
   return (
     <div>
-      {userdata == null ? (
+      {/* {userdata == null ? (
         <>
           <button onClick={() => history.push("/profile/AKx7GLHyOsdYMKP70pvB")}>
             profile
           </button>
-          <button onClick={() => history.push(`/add-post`)}>add post</button>
+          <Link to="/add-post">
+            <button>add post</button>{" "}
+          </Link>
         </>
       ) : (
         <div>
           <button onClick={() => dispatch(userLogOut(), history.push("/"))}>
             გამოსვლა...
           </button>
+          <Link to={`profile/${userdata.uid}`}>
+            <button onChange={() => history.push(`/profile`)}>profile</button>
+          </Link>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
