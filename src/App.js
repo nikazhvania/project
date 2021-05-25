@@ -36,6 +36,7 @@ function App({ user, saveUser }) {
         console.log("not logged in", user);
       } else {
         await getData(user.uid);
+        console.log(user);
       }
     });
   }, []);

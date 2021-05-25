@@ -29,6 +29,9 @@ function HomePage() {
           </Link>
         </div>
       )} */}
+      <button onClick={() => dispatch(userLogOut(), history.push("/"))}>
+        გამოსვლა...
+      </button>
     </div>
   );
 }

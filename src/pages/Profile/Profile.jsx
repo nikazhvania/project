@@ -6,32 +6,21 @@ import "../../styles/profile-style.css";
 export default function Profile() {
   const [data, setData] = useState([]);
   const { user } = useSelector((state) => state);
-  const fetchProfile = async () => {
-    await firestore
-      .collection("Users")
-      .doc(user.uid)
-      .get()
-      .then((doc) => {
-        setData(doc.data());
-      });
-  };
 
-  useEffect(() => {
-    if (user) {
-      fetchProfile();
-    }
-  }, [user]);
-
+  if (user == null && data.length == 0) {
+    return <p>გვერდი იტვირთება</p>;
+  }
+  console.log(data);
   return (
     <div>
       <div className="profile-info">
-        <img src={data.image} />
+        <img src={user.image} />
         <div className="text">
           <h1 style={{ textAlign: "center", marginTop: "15px" }}>
-            {data.Firstname} {data.surname}
+            {user.Firstname} {user.surname}
           </h1>
-          <p style={{ colr: "grey", textAlign: "center" }}>@{data.username}</p>
-          <p style={{ marginTop: "15px" }}>{data.description}</p>
+          <p style={{ colr: "grey", textAlign: "center" }}>@{user.username}</p>
+          <p style={{ marginTop: "15px" }}>{user.description}</p>
         </div>
       </div>
       <img

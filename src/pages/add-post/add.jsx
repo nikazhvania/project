@@ -1,11 +1,12 @@
 import { firestore, storage } from "../../firebase/firebase.config";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../styles/add-post.css";
 import { useHistory } from "react-router";
 export default function AddPost() {
   const history = useHistory();
-  const [inputvalue, setInputvalue] = useState("");
+  const [inputvalue, setInputvalue] = useState([]);
   const [image, setImage] = useState(null);
+  const [tags, setTags] = useState([]);
   const addPost = async () => {
     let title, tags, content, date, author;
     tags = document.getElementById("tags").value;
@@ -31,15 +32,31 @@ export default function AddPost() {
         history.push(`/`);
       });
   };
+  const getTags = async () => {
+    await firestore
+      .collection("tags")
+      .get()
+      .then((querySnapshot) => {
+        setTags(
+          querySnapshot.docs.map((item) => ({
+            ...item.data(),
+          }))
+        );
+      });
+  };
+
   const fileUpload = (e) => {
     setImage(e.target.files[0]);
   };
-
+  useEffect(() => {
+    getTags();
+  }, []);
   function handleTag(key) {
-    if (inputvalue.includes(key)) {
+    console.log(inputvalue);
+    if (inputvalue.indexOf(key) !== -1) {
       alert("Don't click the same tag twice");
     } else {
-      setInputvalue(inputvalue + " " + key);
+      setInputvalue([...inputvalue, key]);
     }
   }
   return (
@@ -98,10 +115,27 @@ export default function AddPost() {
           margin: "auto",
         }}
       >
-        <button onClick={() => handleTag("technology")}>#technology</button>
-        <button onClick={() => handleTag("news")}>#news</button>
-        <button onClick={() => handleTag("applications")}>#applications</button>
-        <button onClick={() => handleTag("computers")}>#computers</button>
+        <div
+          style={{
+            width: "400px",
+            overflowX: "scroll",
+            padding: "10px",
+            display: "flex",
+          }}
+        >
+          {tags.map((item) => {
+            return (
+              item && (
+                <button
+                  onClick={() => handleTag(item.tag)}
+                  style={{ marginRight: "10px" }}
+                >
+                  {"#" + item.tag}
+                </button>
+              )
+            );
+          })}
+        </div>
       </div>
       <input
         required="true"

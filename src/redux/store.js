@@ -6,6 +6,7 @@ import { SIGN_IN_WITH_GOOGLE } from "./constants";
 const initialState = {
   user: null,
   autheduser: undefined,
+  userStatus: null,
 };
 
 const Reducer = (state = initialState, action) => {
